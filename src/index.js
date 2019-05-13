@@ -1,27 +1,9 @@
-// TODO
+// TODO dev-mode only
 console.clear();
-
-// const simon = {
-// 	interval: 1000,
-// 	buttons: {
-// 		green: document.querySelector(".simon .green"),
-// 		red: document.querySelector(".simon .red"),
-// 		blue: document.querySelector(".simon .blue"),
-// 		yellow: document.querySelector(".simon .yellow"),
-// 	},
-// 	bops: [],
-// 	userBops: []
-// };
-
-// for (const btn in simon.buttons) {
-//   console.log(simon.buttons[btn]);
-// }
 
 const interval = 1000;
 
 const simon = document.querySelector(".simon");
-
-// TODO refactor to object
 
 const btns = simon.querySelectorAll(".btn");
 
