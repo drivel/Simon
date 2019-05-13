@@ -1,0 +1,131 @@
+$size: 400px;
+
+$padding: $size / 20;
+
+$bg: lighten(#171d23, 20%);
+$green: #02cf78;
+$red: #fb2b10;
+$yellow: #e3d525;
+$blue: #0e8fdb;
+$light: 15%;
+
+html, body {
+	height: 100%;
+}
+
+html{box-sizing: border-box}
+*,*::before,*::after {
+	box-sizing: inherit;
+}
+
+
+body {
+	background-color: $bg;
+	font: 18px/1.5 sans-serif;
+	margin: 0;
+	position: relative;
+}
+
+.simon {
+	align-content: space-around;
+	align-items: center;
+	border-radius: 100%;
+	background-color: #111;
+	// border: $padding solid #111;
+	box-shadow: 0 0 0 $padding #111;
+	display: flex;
+	flex-wrap: wrap;
+	color: #fff;
+	font-weight: bold;
+	height: $size;
+	justify-content: space-around;
+	width: $size;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.btn {
+	border: none;
+	cursor: pointer;
+	display: inline-block;
+	height: ($size / 2);
+	padding: 0;
+	width: ($size / 2);
+}
+
+.btn:focus {
+	outline: none;
+}
+
+.btn:active, .btn.active {
+	background-image: radial-gradient(circle at 100% 0%,rgba(#fff,90%) -20%,rgba(#fff,10%));
+}
+
+$colors: ("green": $green, "red": $red, "blue": $blue, "yellow": $yellow);
+$i: 0;
+
+@each $color-name, $color in $colors {
+	$i: $i + 1;
+	.#{$color-name} {
+		background-color: $color;
+		border-radius: 0 0 0 100%;
+		transform: rotate((90 * $i + deg));
+
+		&:active, &.active {
+			background-color: lighten($color, 30%);
+			// box-shadow: 0 0 $padding*2 -$padding $color;
+		}
+	}
+}
+
+.controls {
+	background-color: #111;
+	border-radius: 100%;
+	height: $size / 2;
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: $size / 2;
+}
+
+.controls::before, .controls::after {
+	content: "";
+	display: block;
+	background-color: #111;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.controls::before {
+	height: $padding;
+	transform: translate(-50%,-50%);
+	width: $size;
+}
+
+.controls::after {
+	height: $size;
+	transform: translate(-50%,-50%);
+	width: $padding;
+}
+
+.controls h1 {
+	font-size: $size * .12;
+	line-height: 1;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+	width: 100%;
+	z-index: 1;
+}
+
+.controls h1 span {
+	font-size: .5em;
+	font-weight: normal;
+	padding-left: 2px;
+}
